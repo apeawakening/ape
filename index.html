@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猿力觉醒 | Ape Awakening</title>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .lang-en [data-zh] { display: none; }
+        .lang-zh [data-en] { display: none; }
+        
+        /* Custom animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="lang-zh min-h-screen bg-[#F8F9FA] text-[#1A1A1A] selection:bg-emerald-100 selection:text-emerald-900">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-black/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
+                    <img src="https://picsum.photos/seed/tech-logo/100/100" alt="Logo" class="w-full h-full object-contain" referrerPolicy="no-referrer">
+                </div>
+                <span class="font-bold text-xl tracking-tight hidden sm:block">
+                    <span data-zh>猿力觉醒</span>
+                    <span data-en>Ape Awakening</span>
+                </span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm font-medium hover:text-emerald-600 transition-colors">
+                    <span data-zh>关于我们</span>
+                    <span data-en>About Us</span>
+                </a>
+                <a href="#services" class="text-sm font-medium hover:text-emerald-600 transition-colors">
+                    <span data-zh>核心业务</span>
+                    <span data-en>Services</span>
+                </a>
+                <a href="#contact" class="text-sm font-medium hover:text-emerald-600 transition-colors">
+                    <span data-zh>联系我们</span>
+                    <span data-en>Contact</span>
+                </a>
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/10 hover:bg-black/5 transition-all text-sm font-medium">
+                    <i data-lucide="languages" class="w-4 h-4"></i>
+                    <span data-zh>English</span>
+                    <span data-en>中文</span>
+                </button>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <div class="md:hidden flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="p-2 rounded-full hover:bg-black/5">
+                    <i data-lucide="languages" class="w-5 h-5"></i>
+                </button>
+                <button onclick="toggleMobileMenu()" class="p-2">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-black/5 p-6 flex flex-col gap-4 md:hidden shadow-xl">
+            <a href="#about" onclick="toggleMobileMenu()" class="text-lg font-medium">
+                <span data-zh>关于我们</span>
+                <span data-en>About Us</span>
+            </a>
+            <a href="#services" onclick="toggleMobileMenu()" class="text-lg font-medium">
+                <span data-zh>核心业务</span>
+                <span data-en>Services</span>
+            </a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="text-lg font-medium">
+                <span data-zh>联系我们</span>
+                <span data-en>Contact</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-100/50 blur-[120px] rounded-full"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-100/50 blur-[120px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider mb-6">
+                    <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                    <span data-zh>立足青岛 · 面向全球</span>
+                    <span data-en>Based in Qingdao · Serving Globally</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 tracking-tight">
+                    <span data-zh>猿力觉醒，智创未来</span>
+                    <span data-en>Ape Awakening</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
+                    <span data-zh>立足青岛，面向全球。聚焦人工智能、前沿软件开发与全球化跨境电商。</span>
+                    <span data-en>Based in Qingdao, Serving the World. Focusing on AI, Cutting-edge Software, and Global E-commerce.</span>
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#about" class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200 flex items-center gap-2 group">
+                        <span data-zh>了解更多</span>
+                        <span data-en>Learn More</span>
+                        <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative fade-in" style="animation-delay: 0.2s;">
+                <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1000" alt="Technology Innovation" class="w-full h-full object-cover" referrerPolicy="no-referrer">
+                </div>
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-black/5 hidden sm:block">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold">AI Driven</div>
+                            <div class="text-xs text-gray-500">Intelligent Solutions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                    <span data-zh>公司简介</span>
+                    <span data-en>Company Profile</span>
+                </h2>
+                <div class="w-20 h-1.5 bg-emerald-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-8 text-lg text-gray-700 leading-relaxed fade-in">
+                <p data-zh>立足青岛、面向全球，青岛猿力觉醒创新科技有限公司是一家聚焦人工智能、前沿软件开发与全球化跨境电商的创新型科技企业。公司以技术创新为核心驱动力，深度融合数字科技与产业实际需求，专注为全球客户提供智能化系统开发、行业数字化解决方案、跨境电商全链路运营服务及专业技术咨询与技术赋能。</p>
+                <p data-en>Based in Qingdao and serving the world, Qingdao Ape Power Awakening Innovation Technology Co., Ltd. is an innovative technology enterprise focusing on Artificial Intelligence, cutting-edge software development, and global cross-border e-commerce. With technological innovation as its core driving force, the company deeply integrates digital technology with actual industrial needs, focusing on providing global customers with intelligent system development, industrial digital solutions, full-link cross-border e-commerce operation services, and professional technical consulting and empowerment.</p>
+                
+                <p data-zh>公司始终秉持 “技术赋能产业，创新驱动未来”的发展理念，以全球化视野、专业化能力和高标准技术体系，深耕科技应用创新与产业数字化融合。依托前沿技术积累、高效研发能力与全球化服务思维，我们为全球合作伙伴提供稳定、可靠、安全、可扩展的数字化服务与技术支撑，助力企业在智能化、数字化与全球化浪潮中实现转型升级与价值增长。</p>
+                <p data-en>The company always adheres to the development philosophy of "Technology Empowers Industry, Innovation Drives the Future." With a global perspective, professional capabilities, and a high-standard technical system, we deeply cultivate technological application innovation and industrial digital integration. Relying on cutting-edge technology accumulation, efficient R&D capabilities, and global service thinking, we provide stable, reliable, secure, and scalable digital services and technical support for global partners, helping enterprises achieve transformation, upgrading, and value growth in the waves of intelligence, digitalization, and globalization.</p>
+                
+                <p data-zh>面向未来，公司致力于成为区域乃至全球范围内具有核心竞争力、品牌影响力与创新驱动力的科技企业，以持续创新的技术、专业严谨的服务、开放共赢的合作模式，携手全球客户共创数字经济新时代，共筑智能化未来。</p>
+                <p data-en>Looking to the future, the company is committed to becoming a technology enterprise with core competitiveness, brand influence, and innovation drive on a regional and even global scale. With continuous innovative technology, professional and rigorous services, and an open and win-win cooperation model, we work hand in hand with global customers to create a new era of digital economy and build an intelligent future together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 bg-[#F8F9FA]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                    <span data-zh>核心业务领域</span>
+                    <span data-en>Core Business</span>
+                </h2>
+                <p class="text-gray-500">
+                    <span data-zh>多元化科技布局，驱动产业升级</span>
+                    <span data-en>Diversified technology layout, driving industrial upgrading</span>
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- AI -->
+                <div class="bg-white p-10 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-1 transition-all group fade-in">
+                    <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i data-lucide="cpu" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <span data-zh>人工智能 (AI)</span>
+                        <span data-en>Artificial Intelligence</span>
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-zh>深度融合AI技术，为各行业提供智能化系统开发与决策支持。</span>
+                        <span data-en>Deeply integrating AI to provide intelligent system development and decision support across industries.</span>
+                    </p>
+                </div>
+                <!-- Software -->
+                <div class="bg-white p-10 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-1 transition-all group fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i data-lucide="code-2" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <span data-zh>软件开发</span>
+                        <span data-en>Software Development</span>
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-zh>专注前沿软件架构，提供高性能、可扩展的行业数字化解决方案。</span>
+                        <span data-en>Focusing on cutting-edge architecture to provide high-performance, scalable digital solutions.</span>
+                    </p>
+                </div>
+                <!-- E-commerce -->
+                <div class="bg-white p-10 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-1 transition-all group fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <span data-zh>跨境电商</span>
+                        <span data-en>Cross-border E-commerce</span>
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-zh>全球化全链路运营服务，助力品牌出海，实现全球价值增长。</span>
+                        <span data-en>Global full-link operation services, helping brands go global and achieve value growth.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-emerald-900 text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 100 100" class="w-full h-full">
+                <path d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="currentColor" stroke-width="0.5" />
+                <path d="M0,60 Q25,10 50,60 T100,60" fill="none" stroke="currentColor" stroke-width="0.5" />
+                <path d="M0,40 Q25,-10 50,40 T100,40" fill="none" stroke="currentColor" stroke-width="0.5" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-8 tracking-tight">
+                    <span data-zh>携手共创数字未来</span>
+                    <span data-en>Create the Digital Future Together</span>
+                </h2>
+                <p class="text-emerald-100/80 text-lg mb-12 leading-relaxed">
+                    <span data-zh>我们期待与全球合作伙伴建立联系，共同探索科技创新的无限可能。</span>
+                    <span data-en>We look forward to connecting with global partners to explore the infinite possibilities of technological innovation.</span>
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-emerald-200/60 uppercase tracking-widest font-bold">
+                                <span data-zh>地址</span>
+                                <span data-en>Address</span>
+                            </div>
+                            <div class="font-medium">
+                                <span data-zh>中国·青岛</span>
+                                <span data-en>Qingdao, China</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-emerald-200/60 uppercase tracking-widest font-bold">
+                                <span data-zh>邮箱</span>
+                                <span data-en>Email</span>
+                            </div>
+                            <div class="font-medium">contact@apepower.tech</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-lg p-8 rounded-3xl border border-white/10 fade-in" style="animation-delay: 0.2s;">
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent! (Demo)');">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Name" class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-400 transition-colors placeholder:text-white/30">
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-400 transition-colors placeholder:text-white/30">
+                    </div>
+                    <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-400 transition-colors placeholder:text-white/30"></textarea>
+                    <button class="w-full py-4 bg-emerald-500 text-white rounded-xl font-bold hover:bg-emerald-400 transition-all">
+                        <span data-zh>发送消息</span>
+                        <span data-en>Send Message</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-white border-t border-black/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 flex items-center justify-center overflow-hidden">
+                    <img src="https://picsum.photos/seed/tech-logo/100/100" alt="Logo" class="w-full h-full object-contain" referrerPolicy="no-referrer">
+                </div>
+                <span class="font-bold text-lg tracking-tight">
+                    <span data-zh>猿力觉醒</span>
+                    <span data-en>Ape Awakening</span>
+                </span>
+            </div>
+            <div class="text-sm text-gray-500">
+                <span data-zh>© 2026 青岛猿力觉醒创新科技有限公司. 版权所有.</span>
+                <span data-en>© 2026 Qingdao Ape Power Awakening Innovation Technology Co., Ltd. All Rights Reserved.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-400 hover:text-emerald-600 transition-colors"><i data-lucide="globe" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-emerald-600 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Language State
+        let currentLang = 'zh';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.body.className = 'lang-' + currentLang;
+            document.documentElement.lang = currentLang;
+        }
+
+        // Mobile Menu State
+        let isMenuOpen = false;
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // Simple Scroll Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            // observer.observe(section); // Optional: re-trigger animations on scroll
+        });
+    </script>
+</body>
+</html>
